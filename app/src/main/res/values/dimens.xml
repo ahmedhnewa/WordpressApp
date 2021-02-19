@@ -1,0 +1,56 @@
+<resources>
+
+    <dimen name="spacing_xxsmall">@dimen/_1sdp</dimen>
+    <dimen name="spacing_xsmall">@dimen/_2sdp</dimen>
+    <dimen name="spacing_xmlarge">@dimen/_40sdp</dimen>
+    <dimen name="spacing_xxxllarge">@dimen/_60sdp</dimen>
+    <dimen name="appbar_padding_top">@dimen/_8sdp</dimen>
+    <dimen name="text_margin">@dimen/_16sdp</dimen>
+
+    <dimen name="font_size_nano">@dimen/_10ssp</dimen>
+    <dimen name="font_size_micro">@dimen/_12ssp</dimen>
+    <dimen name="font_size_small">@dimen/_14ssp</dimen>
+    <dimen name="font_size_medium">@dimen/_16ssp</dimen>
+    <dimen name="font_size_normal">@dimen/_18ssp</dimen>
+    <dimen name="font_size_large">@dimen/_18ssp</dimen>
+    <dimen name="font_size_xlarge">@dimen/_22ssp</dimen>
+    <dimen name="font_size_xxlarge">@dimen/_26ssp</dimen>
+    <dimen name="font_size_xxxlarge">@dimen/_30ssp</dimen>
+    <dimen name="font_size_splash">@dimen/_40ssp</dimen>
+
+
+    <dimen name="spacing_control_half">@dimen/_2sdp</dimen>
+    <dimen name="spacing_control">@dimen/_4sdp</dimen>
+    <dimen name="spacing_standard">@dimen/_8sdp</dimen>
+    <dimen name="spacing_standard_new">@dimen/_16sdp</dimen>
+    <dimen name="spacing_large">@dimen/_24sdp</dimen>
+    <dimen name="spacing_xlarge">@dimen/_32sdp</dimen>
+    <dimen name="spacing_xxlarge">@dimen/_40sdp</dimen>
+
+    <dimen name="nav_header_height">@dimen/_200sdp</dimen>
+    <dimen name="fab_margin">@dimen/_16sdp</dimen>
+    <dimen name="clip_padding">@dimen/_70sdp</dimen>
+
+    <dimen name="spacing_small">@dimen/_3sdp</dimen>
+    <dimen name="spacing_medium">@dimen/_5sdp</dimen>
+    <dimen name="spacing_xmedium">@dimen/_7sdp</dimen>
+    <dimen name="spacing_middle">@dimen/_10sdp</dimen>
+    <dimen name="spacing_smlarge">@dimen/_18sdp</dimen>
+    <dimen name="spacing_mlarge">@dimen/_20sdp</dimen>
+    <dimen name="spacing_mxlarge">@dimen/_25sdp</dimen>
+    <dimen name="spacing_xxxlarge">@dimen/_55sdp</dimen>
+    <dimen name="edit_text_h">@dimen/_45sdp</dimen>
+    <dimen name="img_height">@dimen/_300sdp</dimen>
+    <dimen name="sidebar_img_height">@dimen/_110sdp</dimen>
+    <dimen name="product_img_height">@dimen/_115sdp</dimen>
+    <dimen name="product_img_width">@dimen/_130sdp</dimen>
+    <dimen name="product_item_height">@dimen/_300sdp</dimen>
+    <dimen name="review_img_height_width">@dimen/_70sdp</dimen>
+    <dimen name="product_grid_img_height">@dimen/_140sdp</dimen>
+    <dimen name="payment_card_width">@dimen/_270sdp</dimen>
+    <dimen name="splash_img">@dimen/_70sdp</dimen>
+
+    <dimen name="divider_width">0.5dp</dimen>
+    <dimen name="stroke_width">@dimen/_1sdp</dimen>
+
+</resources>

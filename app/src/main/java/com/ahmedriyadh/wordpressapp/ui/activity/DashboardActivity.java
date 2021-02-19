@@ -17,6 +17,11 @@ import com.ahmedriyadh.wordpressapp.ui.fragments.HomeFragment;
 import com.ahmedriyadh.wordpressapp.ui.fragments.SignInFragment;
 import com.ahmedriyadh.wordpressapp.utils.SessionManager;
 
+/*
+ * By Ahmed Riyadh
+ * Note : Please Don't Re-Post This Project Source Code on Social Media etc..
+ * */
+
 public class DashboardActivity extends AppCompatActivity implements SignInFragment.SignInFragmentListener, HomeFragment.HomeFragmentListener {
     private ActivityDashboardBinding binding;
     private FragmentManager fm;
@@ -40,9 +45,11 @@ public class DashboardActivity extends AppCompatActivity implements SignInFragme
         if (!SessionManager.getInstance(DashboardActivity.this).isLoggedIn()) {
             SignInFragment signInFragment = new SignInFragment();
             fm.beginTransaction().replace(fragmentContainerId, signInFragment).commit();
+            hideActionBar();
         } else {
             HomeFragment homeFragment = new HomeFragment();
             fm.beginTransaction().replace(fragmentContainerId, homeFragment).commit();
+            showActionBar();
         }
     }
 
@@ -54,11 +61,13 @@ public class DashboardActivity extends AppCompatActivity implements SignInFragme
     public void onLoggedIn() {
         HomeFragment homeFragment = new HomeFragment();
         fm.beginTransaction().replace(fragmentContainerId, homeFragment).commit();
+        showActionBar();
     }
 
     @Override
     public void onLoggedOut() {
         logout();
+        hideActionBar();
     }
 
 
@@ -66,5 +75,13 @@ public class DashboardActivity extends AppCompatActivity implements SignInFragme
         SessionManager.getInstance(DashboardActivity.this).logout();
         SignInFragment signInFragment = new SignInFragment();
         fm.beginTransaction().replace(fragmentContainerId, signInFragment).commit();
+    }
+
+    private void hideActionBar() {
+        getSupportActionBar().hide();
+    }
+
+    private void showActionBar() {
+        getSupportActionBar().show();
     }
 }

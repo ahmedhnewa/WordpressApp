@@ -10,6 +10,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
+/*
+ * By Ahmed Riyadh
+ * Note : Please Don't Re-Post This Project Source Code on Social Media etc..
+ * */
+
 public interface ApiInterface {
 
     @POST("jwt-auth/v1/token")

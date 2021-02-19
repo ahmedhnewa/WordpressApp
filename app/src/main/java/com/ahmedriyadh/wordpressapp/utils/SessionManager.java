@@ -5,6 +5,11 @@ import android.content.SharedPreferences;
 
 import com.ahmedriyadh.wordpressapp.models.User;
 
+/*
+ * By Ahmed Riyadh
+ * Note : Please Don't Re-Post This Project Source Code on Social Media etc..
+ * */
+
 public class SessionManager {
     private static final String KEY_TOKEN = "token";
     private static final String KEY_ID = "user_id";

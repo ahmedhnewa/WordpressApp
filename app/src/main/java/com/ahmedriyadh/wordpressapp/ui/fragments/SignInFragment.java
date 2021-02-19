@@ -30,6 +30,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/*
+ * By Ahmed Riyadh
+ * Note : Please Don't Re-Post This Project Source Code on Social Media etc..
+ * */
+
 public class SignInFragment extends Fragment {
     private Context context;
     private Activity activity;
@@ -79,7 +84,7 @@ public class SignInFragment extends Fragment {
 
 
     private void loginUser(String email, String password) {
-        Log.d(TAG, "loginUser: " + ApiClient.getApiInterface().getToken(email, password).request().url().toString());
+        /*Log.d(TAG, "loginUser: " + ApiClient.getApiInterface().getToken(email, password).request().url().toString());*/
         ApiClient.getApiInterface().getToken(email, password)
                 .enqueue(new Callback<JwtResponse>() {
                     @Override
@@ -95,7 +100,7 @@ public class SignInFragment extends Fragment {
                                         "" + jwtResponse.getUserDisplayName(),
                                         "", -1);
 
-                                Log.d(TAG, "onResponse: " + user.getEmail() + " d");
+                                /*Log.d(TAG, "onResponse: " + user.getEmail() + " d");*/
 
                                 SessionManager.getInstance(context).loginUser(user);
                                 listener.onLoggedIn();
@@ -116,10 +121,11 @@ public class SignInFragment extends Fragment {
                                             Toast.makeText(context, "كلمة مرور غير صحيحة", Toast.LENGTH_SHORT).show();
                                         } else if (code.contains("invalid_username") || code.contains("[jwt_auth] invalid_username")) {
                                             Toast.makeText(context, "اسم المستخدم غير معروف", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(context, "بريد الكتروني غير معروف", Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (IOException e) {
                                         e.printStackTrace();
-                                        Log.d(TAG, "onResponse: " + "cant get error string");
                                     }
                                     break;
                                 default:
@@ -145,8 +151,10 @@ public class SignInFragment extends Fragment {
     }
 
     private void prepareLoadingDialog() {
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("جاري التحميل");
+        if (progressDialog == null){
+            progressDialog = new ProgressDialog(context);
+            progressDialog.setMessage("جاري التحميل");
+        }
     }
 
     private void hideLoadingDialog() {
@@ -163,13 +171,16 @@ public class SignInFragment extends Fragment {
 
     private boolean validateEmail(String email) {
         if (email.isEmpty()) {
-            binding.emailTextInput.setError("الرجاء ادخال بريد الكتروني");
+            binding.emailTextInput.setError("الرجاء ادخال بريد الكتروني او اسم مستخدم");
             binding.emailTextInput.requestFocus();
             return false;
         } /* else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.g
+            binding.emailTextInput ...
             return false;
-        }*/ else {
+        }*/ else if (email.length() >= 35) {
+            binding.emailTextInput.setError("لايمكن ان يكون اكثر من 40 حرف");
+            return false;
+        } else {
             binding.emailTextInput.setError(null);
             return true;
         }

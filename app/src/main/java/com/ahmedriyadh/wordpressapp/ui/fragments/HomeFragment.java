@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/*
+ * By Ahmed Riyadh
+ * Note : Please Don't Re-Post This Project Source Code on Social Media etc..
+ * */
+
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private SessionManager sessionManager;
@@ -40,6 +46,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Post> postList;
     private PostAdapter adapter;
+    private ProgressBar progressBar;
     private static final String TAG = "HomeFragment";
 
     public HomeFragment() {
@@ -59,6 +66,8 @@ public class HomeFragment extends Fragment {
         initView();
         initVar();
         prepareRecyclerView();
+
+        showProgressBar();
         getPosts(true);
 
         return view;
@@ -90,10 +99,12 @@ public class HomeFragment extends Fragment {
                         } else {
                             Toast.makeText(context, "تعذر تحميل المقالات1", Toast.LENGTH_SHORT).show();
                         }
+                        hideProgressBar();
                     }
 
                     @Override
                     public void onFailure(Call<List<Post>> call, Throwable t) {
+                        hideProgressBar();
                         Toast.makeText(context, "تعذر تحميل المقالات2", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "onFailure: " + t.getMessage());
                     }
@@ -102,6 +113,7 @@ public class HomeFragment extends Fragment {
 
     private void initView() {
         recyclerView = binding.recyclerView;
+        progressBar = binding.progressCircular;
     }
 
     private void prepareRecyclerView() {
@@ -165,6 +177,18 @@ public class HomeFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
 
+        }
+    }
+
+    private void showProgressBar() {
+        if (progressBar.getVisibility() == View.GONE || progressBar.getVisibility() == View.INVISIBLE) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void hideProgressBar() {
+        if (progressBar.getVisibility() == View.VISIBLE) {
+            progressBar.setVisibility(View.GONE);
         }
     }
 }

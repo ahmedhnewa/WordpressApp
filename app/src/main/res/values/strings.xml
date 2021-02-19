@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WordpressApp</string>
+    <string name="label_don_t_have_an_account">ليس لديك حساب ؟</string>
+    <string name="label_register">تسجيل الدخول</string>
+    <string name="label_sign_in">تسجيل الدخول</string>
+    <string name="label_login">تسجيل</string>
+    <string name="label_welcome_back">مرحبا بك</string>
+    <string name="label_email">البريد الالكتروني</string>
+    <string name="label_email_or_username">اسم المستخدم او البريد الالكتروني</string>
+    <string name="label_loading">جاري التحميل</string>
 </resources>

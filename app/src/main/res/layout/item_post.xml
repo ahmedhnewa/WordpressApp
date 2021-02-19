@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="335dp"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="@dimen/_325sdp"
+    android:layout_margin="@dimen/_16sdp"
+    app:cardCornerRadius="@dimen/_8sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/_8sdp">
 
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textSize="@dimen/_25ssp"
             android:maxLines="1"
             android:ellipsize="end"
             tools:text="test" />
@@ -26,8 +26,8 @@
         <ImageView
             android:id="@+id/postIv"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="@dimen/_170sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             tools:src="@drawable/ic_email" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textSize="20sp"
+            android:textSize="@dimen/_20ssp"
             tools:text="sdadsadsasdadsadassadddddddddd dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
     </LinearLayout>
 
