@@ -66,11 +66,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         if (item.getEmbedded() != null && item.getEmbedded().getFeaturedMedia() != null && item.getEmbedded().getFeaturedMedia().get(0).getSourceUrl() != null) {
             imageUrl = item.getEmbedded().getFeaturedMedia().get(0).getSourceUrl();
-            Log.d(TAG, "onBindViewHolder: " + "2");
         }
 
 
-        Log.d(TAG, "onBindViewHolder: " + imageUrl);
         if (imageUrl != null && !imageUrl.isEmpty()) {
             Picasso.get()
                     .load(imageUrl)
