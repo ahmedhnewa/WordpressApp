@@ -58,6 +58,13 @@ public class SignInFragment extends Fragment {
 
         prepareLoadingDialog();
 
+        binding.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.onBackPressed();
+            }
+        });
+
         binding.signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
