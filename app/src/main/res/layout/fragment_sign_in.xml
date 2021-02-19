@@ -149,9 +149,10 @@
                     android:layout_marginEnd="@dimen/_50sdp"
                     android:text="@string/label_sign_in"
                     android:textAllCaps="false"
-                    android:textColor="@color/primaryColor"
-                    app:backgroundTint="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/primaryColor"
                     app:cornerRadius="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     app:rippleColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
