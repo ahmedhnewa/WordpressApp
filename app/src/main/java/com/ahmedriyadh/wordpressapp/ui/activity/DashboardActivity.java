@@ -31,7 +31,9 @@ public class DashboardActivity extends AppCompatActivity implements SignInFragme
         setContentView(view);
 
         initVar();
-        loadFragment();
+        if (savedInstanceState == null) {
+            loadFragment();
+        }
     }
 
     private void loadFragment() {
