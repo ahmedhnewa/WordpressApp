@@ -69,11 +69,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/label_sign_up"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/primaryColor"
+        app:cornerRadius="@dimen/_8sdp"
+        app:rippleColor="@color/white"
         android:theme="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
 
 

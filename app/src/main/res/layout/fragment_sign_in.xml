@@ -141,23 +141,31 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/sign_in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_50sdp"
                     android:layout_marginEnd="@dimen/_50sdp"
-                    android:text="تسجيل الدخول" />
+                    android:text="@string/label_sign_in"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primaryColor"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="@dimen/_8sdp"
+                    app:rippleColor="@color/white" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/sign_up"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_50sdp"
                     android:layout_marginEnd="@dimen/_50sdp"
-                    android:background="@drawable/custom_btn1"
+                    android:text="@string/label_create_new_account"
+                    android:textAllCaps="false"
                     android:textColor="@color/primaryColor"
-                    android:text="@string/label_create_new_account" />
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="@dimen/_8sdp"
+                    app:rippleColor="@color/white" />
 
 
             </LinearLayout>
