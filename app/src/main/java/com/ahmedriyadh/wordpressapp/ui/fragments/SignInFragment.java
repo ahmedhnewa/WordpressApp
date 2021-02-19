@@ -40,12 +40,24 @@ public class SignInFragment extends Fragment {
     private Activity activity;
     private FragmentSignInBinding binding;
     private ProgressDialog progressDialog;
-    private static final String TAG = "SignInFragment";
     private SignInFragmentListener listener;
+    private boolean isInTask = false;
+    private static final String TAG = "SignInFragment";
+    private static final String ARG_USERNAME = "usernameParam";
+    private String username;
 
     public SignInFragment() {
         setHasOptionsMenu(true);
     }
+
+    public static SignInFragment newInstance(String username){
+        SignInFragment signInFragment = new SignInFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_USERNAME,username);
+        signInFragment.setArguments(args);
+        return signInFragment;
+    }
+
 
     @Nullable
     @Override
@@ -58,10 +70,24 @@ public class SignInFragment extends Fragment {
 
         prepareLoadingDialog();
 
+        if (getArguments() != null) {
+            username = getArguments().getString(ARG_USERNAME);
+            if (username != null && !username.isEmpty()){
+                binding.emailTextInput.getEditText().setText("" + username);
+            }
+        }
+
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activity.onBackPressed();
+            }
+        });
+
+        binding.signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onRequestOpenSignUpFragment();
             }
         });
 
@@ -75,8 +101,15 @@ public class SignInFragment extends Fragment {
                     return;
                 }
 
-                showLoadingDialog();
-                loginUser(email, password);
+                if (!isInTask) {
+                    isInTask = true;
+                    showLoadingDialog();
+                    loginUser(email, password);
+                } else {
+                    Toast.makeText(context, "جاري تسجيل الدخول , الرجاء الانتظار", Toast.LENGTH_SHORT).show();
+                    showLoadingDialog();
+                }
+
             }
         });
 
@@ -146,10 +179,12 @@ public class SignInFragment extends Fragment {
                             }
                         }
                         hideLoadingDialog();
+                        isInTask = false;
                     }
 
                     @Override
                     public void onFailure(Call<JwtResponse> call, Throwable t) {
+                        isInTask = false;
                         hideLoadingDialog();
                         Toast.makeText(context, "خطأ", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "onFailure: " + t.getMessage());
@@ -161,6 +196,7 @@ public class SignInFragment extends Fragment {
         if (progressDialog == null){
             progressDialog = new ProgressDialog(context);
             progressDialog.setMessage("جاري التحميل");
+            progressDialog.setCancelable(false);
         }
     }
 
@@ -185,7 +221,7 @@ public class SignInFragment extends Fragment {
             binding.emailTextInput ...
             return false;
         }*/ else if (email.length() >= 35) {
-            binding.emailTextInput.setError("لايمكن ان يكون اكثر من 40 حرف");
+            binding.emailTextInput.setError("لايمكن ان يكون اكثر من 35 حرف");
             return false;
         } else {
             binding.emailTextInput.setError(null);
@@ -212,6 +248,7 @@ public class SignInFragment extends Fragment {
 
     public interface SignInFragmentListener {
         void onLoggedIn();
+        void onRequestOpenSignUpFragment();
     }
 
     @Override

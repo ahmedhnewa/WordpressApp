@@ -1,7 +1,7 @@
 package com.ahmedriyadh.wordpressapp.models;
 
 public class User {
-    private String token,firstName,lastName,email,role,userName,imgUrl;
+    private String token, firstName, lastName, email, role, userName, imgUrl;
     private int id;
 
     public User(String token) {

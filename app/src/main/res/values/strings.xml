@@ -8,4 +8,10 @@
     <string name="label_email">البريد الالكتروني</string>
     <string name="label_email_or_username">اسم المستخدم او البريد الالكتروني</string>
     <string name="label_loading">جاري التحميل</string>
+    <string name="label_create_new_account">انشاء حساب جديد</string>
+    <string name="label_last_name">الاسم الاخير</string>
+    <string name="label_first_name">الاسم الاول</string>
+    <string name="label_sign_up">تسجيل</string>
+    <string name="label_username">اسم المستخدم</string>
+    <string name="label_password">كلمة المرور</string>
 </resources>

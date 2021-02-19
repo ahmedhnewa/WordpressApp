@@ -1,5 +1,6 @@
 package com.ahmedriyadh.wordpressapp.api;
 
+import com.ahmedriyadh.wordpressapp.models.CreateUser;
 import com.ahmedriyadh.wordpressapp.models.JwtResponse;
 import com.ahmedriyadh.wordpressapp.models.Post;
 
@@ -7,6 +8,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -21,6 +23,16 @@ public interface ApiInterface {
     Call<JwtResponse> getToken(
             @Query("username") String username,
             @Query("password") String password
+    );
+
+    @POST("wp/v2/users")
+    Call<CreateUser> createUser(
+            @Header("Authorization") String token,
+            @Query("username") String username,
+            @Query("email") String email,
+            @Query("password") String password,
+            @Query("first_name") String firstName,
+            @Query("last_name") String lastName
     );
 
     @GET("wp/v2/posts")

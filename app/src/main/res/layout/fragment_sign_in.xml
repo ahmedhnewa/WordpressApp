@@ -149,6 +149,16 @@
                     android:layout_marginEnd="@dimen/_50sdp"
                     android:text="تسجيل الدخول" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_50sdp"
+                    android:layout_marginEnd="@dimen/_50sdp"
+                    android:background="@drawable/custom_btn1"
+                    android:textColor="@color/primaryColor"
+                    android:text="@string/label_create_new_account" />
+
 
             </LinearLayout>
 

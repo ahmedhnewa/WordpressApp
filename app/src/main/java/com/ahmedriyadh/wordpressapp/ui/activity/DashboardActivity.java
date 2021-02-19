@@ -10,11 +10,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.ahmedriyadh.wordpressapp.R;
 import com.ahmedriyadh.wordpressapp.databinding.ActivityDashboardBinding;
+import com.ahmedriyadh.wordpressapp.ui.dialogs.EnterUserNameDialog;
 import com.ahmedriyadh.wordpressapp.ui.fragments.HomeFragment;
 import com.ahmedriyadh.wordpressapp.ui.fragments.SignInFragment;
+import com.ahmedriyadh.wordpressapp.ui.fragments.SignUpFragment;
 import com.ahmedriyadh.wordpressapp.utils.SessionManager;
 
 /*
@@ -22,7 +25,7 @@ import com.ahmedriyadh.wordpressapp.utils.SessionManager;
  * Note : Please Don't Re-Post This Project Source Code on Social Media etc..
  * */
 
-public class DashboardActivity extends AppCompatActivity implements SignInFragment.SignInFragmentListener, HomeFragment.HomeFragmentListener {
+public class DashboardActivity extends AppCompatActivity implements SignInFragment.SignInFragmentListener, HomeFragment.HomeFragmentListener, SignUpFragment.SignUpFragmentListener {
     private ActivityDashboardBinding binding;
     private FragmentManager fm;
     @IdRes
@@ -65,6 +68,13 @@ public class DashboardActivity extends AppCompatActivity implements SignInFragme
     }
 
     @Override
+    public void onRequestOpenSignUpFragment() {
+        SignUpFragment signUpFragment = new SignUpFragment();
+        hideActionBar();
+        fm.beginTransaction().replace(fragmentContainerId, signUpFragment).commit();
+    }
+
+    @Override
     public void onLoggedOut() {
         logout();
         hideActionBar();
@@ -83,5 +93,12 @@ public class DashboardActivity extends AppCompatActivity implements SignInFragme
 
     private void showActionBar() {
         getSupportActionBar().show();
+    }
+
+    @Override
+    public void onAccountCreated(String username) {
+        Toast.makeText(this, "تم انشاء الحساب الرجاء تسجيل الدخول", Toast.LENGTH_SHORT).show();
+        SignInFragment signInFragment = SignInFragment.newInstance(username);
+        fm.beginTransaction().replace(fragmentContainerId, signInFragment).commit();
     }
 }
