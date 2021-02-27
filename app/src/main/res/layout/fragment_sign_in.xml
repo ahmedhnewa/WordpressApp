@@ -147,15 +147,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
                     android:paddingStart="@dimen/_8sdp"
                     android:paddingEnd="@dimen/_8sdp"
                     android:text="@string/label_sign_in"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/primaryColor"
-                    app:cornerRadius="@dimen/_8sdp"
-                    app:rippleColor="@color/white" />
+                    style="@style/MaterialButtonStyle.Filled" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sign_up"
@@ -166,11 +161,8 @@
                     android:paddingStart="@dimen/_8sdp"
                     android:paddingEnd="@dimen/_8sdp"
                     android:text="@string/label_create_new_account"
-                    android:textAllCaps="false"
-                    android:textColor="@color/primaryColor"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="@dimen/_8sdp"
-                    app:rippleColor="@color/white" />
+                    style="@style/MaterialButtonStyle.Stroked"
+                   />
 
 
             </LinearLayout>

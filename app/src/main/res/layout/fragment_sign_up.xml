@@ -74,14 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/label_sign_up"
-        android:paddingStart="@dimen/_8sdp"
-        android:paddingEnd="@dimen/_8sdp"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:theme="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-        app:backgroundTint="@color/primaryColor"
-        app:cornerRadius="@dimen/_8sdp"
-        app:rippleColor="@color/white" />
+        style="@style/MaterialButtonStyle.Filled" />
 
 
 </LinearLayout>

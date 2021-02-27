@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.ahmedriyadh.wordpressapp.R;
 import com.ahmedriyadh.wordpressapp.api.ApiClient;
 import com.ahmedriyadh.wordpressapp.models.CreateUser;
 import com.ahmedriyadh.wordpressapp.ui.dialogs.EnterUserNameDialog;
@@ -50,6 +52,8 @@ public class SignUpFragment extends Fragment implements EnterUserNameDialog.Ente
 
         initVar();
         prepareLoadingDialog();
+        // i have no idea why color text cant be changed to white but this should work
+        binding.signUp.setText(Html.fromHtml("<font color='#ffffff'>" + getString(R.string.label_sign_up) + "</font>"));
 
         binding.signUp.setOnClickListener(new View.OnClickListener() {
             @Override
